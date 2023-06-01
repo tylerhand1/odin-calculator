@@ -17,6 +17,7 @@ const numberBtns = [...document.querySelectorAll('.number')];
 /* Calculation variables */
 let a = 0, b = 0;
 let operator = add;
+let operatorSet = false;
 let onFirstNum = true;
 let secondNumSet = false;
 let onFirstDigit = true;
@@ -41,7 +42,7 @@ function divide(a, b) {
 }
 
 function operate() {
-    if(secondNumSet || atLeastOnceCalculated) {
+    if(operatorSet && (secondNumSet || atLeastOnceCalculated)) {
         let result = operator(a, b);
         console.log(`Result is ${result}`);
         calculationDisplay.textContent = `${calculationDisplay.textContent} ${b}`;
@@ -53,6 +54,7 @@ function operate() {
         resetNums();
         a = result;
         atLeastOnceCalculated = true;
+        operatorSet = false;
     }
 }
 
@@ -118,6 +120,7 @@ function setOperator(e) {
             symbol = '÷';
             break;
     }
+    operatorSet = true;
     onFirstNum = false;
     decimal = false;
     decimalCount = 0;
