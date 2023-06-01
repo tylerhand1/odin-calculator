@@ -185,12 +185,22 @@ function addDot() {
         decimal = true;
         resultDisplay.textContent = `${resultDisplay.textContent}.`;
         if(onFirstNum) {
-            a = Number.parseFloat(`${resultDisplay.textContent}`);
+            if(Number.parseFloat(`${resultDisplay.textContent}`) === NaN || resultDisplay.textContent === '.') {
+                a = 0;
+                resultDisplay.textContent = `0.`;
+            } else {
+                a = Number.parseFloat(`${resultDisplay.textContent}`);
+            }
         } else {
             if(onFirstDigit) {
                 b = 0
             } else {
-                b = Number.parseFloat(`${resultDisplay.textContent}`);
+                if(Number.parseFloat(`${resultDisplay.textContent}`) === NaN || resultDisplay.textContent === '.') {
+                    b = 0;
+                    resultDisplay.textContent = `$0.`;
+                } else {
+                    b = Number.parseFloat(`${resultDisplay.textContent}`);
+                }
             }
             resultDisplay.textContent = `${b}.`;
         }
