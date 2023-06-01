@@ -1,6 +1,7 @@
 * {
     -ms-overflow-style: none;  /* Internet Explorer 10+ */
     scrollbar-width: none;  /* Firefox */
+    box-sizing: border-box;
 }
 
 *, body {
@@ -23,23 +24,100 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
+    color: #2f3640;
+    background-color: #f5f6fa;
 }
 
 .main {
     display: flex;
     flex: 1 1 auto;
     margin: 50px auto;
-    width: 580px;
-    min-height: 500px;
-    max-height: 500px;
-    border: 2px solid red;
+    width: 400px;
+    min-height: 620px;
+    max-height: 620px;
 }
 
-footer {
+.calculator {
+    width: 100%;
+    background-color: #0097e6;
+    outline: 2px solid #192a56;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 10px;
+}
+
+.display {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 10px;
+    border-radius: 3px;
+    outline: 2px solid #192a56;
+    background-color: #dcdde1;
+    width: 360px;
+    height: 20%;
+    margin: 20px 0;
+    text-align: end;
+    font-size: 24px;
+    line-height: 32px;
+}
+
+.btn-container {
+    width: 360px;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.top-btns, .btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.top-btns button, .btn-row button {
+    border: 2px solid #192a56;
+    border-radius: 5px;
+}
+
+.top-btns button {
+    width: 175px;
+    height: 70px;
+    font-size: 22px;
+}
+
+.clear {
+    background-color: #e84118;
+}
+
+.clear:hover {
+    background-color: #c23616;
+}
+
+.delete {
+    background-color: #fbc531;
+}
+
+.delete:hover {
+    background-color: #e1b12c;
+}
+
+.btn-row button {
+    width: 81px;
+    height: 81px;
+    font-size: 18px;
+}
+
+footer { /* https://stackoverflow.com/questions/18990675/how-to-fix-a-footer-overlapping-content keep footer at bottom */
     text-align: center;
     width: 100%;
-    padding: 30px;
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 18px;
+    font-weight: 500;
 }
