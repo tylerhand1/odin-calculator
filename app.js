@@ -77,7 +77,7 @@ function deleteNum() {
     } else {
         if(decimal) {
             if(decimalCount === 1) {
-                resultDisplay.textContent = `${Math.floor(Number.parseFloat(resultDisplay.textContent))}`;
+                resultDisplay.textContent = `${Math.floor(Number.parseFloat(resultDisplay.textContent))}.`;
                 num = Number.parseFloat(resultDisplay.textContent);
             } else {
                 num = Number.parseFloat(`${resultDisplay.textContent.slice(0, resultDisplay.textContent.length - 1)}`);
@@ -137,21 +137,14 @@ function addNumToDisplay(e) {
         if(decimal) {
             if(decimalCount === 0) {
                 a = Number.parseFloat(`${a}.${e.target.textContent}`);
-                console.log(a)
                 if(a === Math.floor(a)) {
                     resultDisplay.textContent = `${a}.${e.target.textContent}`;
                 } else {
                     resultDisplay.textContent = a;
                 }
             } else {
-                console.log(a)
-                a = Number.parseFloat(`${a}${e.target.textContent}`);
-                if(a === Math.floor(a)) {
-                    console.log('here')
-                    resultDisplay.textContent = `${a}${e.target.textContent}`;
-                } else {
-                    resultDisplay.textContent = a;
-                }
+                resultDisplay.textContent = `${resultDisplay.textContent}${e.target.textContent}`;
+                a = Number.parseFloat(`${resultDisplay.textContent}`);
             }
             decimalCount++;
         } else {
@@ -161,21 +154,28 @@ function addNumToDisplay(e) {
     } else {
         if(decimal) {
             if(decimalCount === 0) {
-                b = Number.parseFloat(`${b}.${e.target.textContent}`);
+                b = Number.parseFloat(`${resultDisplay.textContent}${e.target.textContent}`);
+                if(b === Math.floor(b)) {
+                    resultDisplay.textContent = `${resultDisplay.textContent}${e.target.textContent}`;
+                } else {
+                    resultDisplay.textContent = b;
+                }
             } else {
-                b = Number.parseFloat(`${b}${e.target.textContent}`);
+                resultDisplay.textContent = `${resultDisplay.textContent}${e.target.textContent}`;
+                b = Number.parseFloat(`${resultDisplay.textContent}`);
             }
             decimalCount++;
         } else {
             if(onFirstDigit) {
                 b = Number.parseFloat(`${e.target.textContent}`);
                 onFirstDigit = false;
+                resultDisplay.textContent = b;
             } else {
                 b = Number.parseFloat(`${b}${e.target.textContent}`);
+                resultDisplay.textContent = b;
             }
         }
         secondNumSet = true;
-        resultDisplay.textContent = b;
     }
     
 }
