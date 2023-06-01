@@ -31,7 +31,7 @@ body {
 .main {
     display: flex;
     flex: 1 1 auto;
-    margin: 50px auto;
+    margin: 100px auto;
     width: 400px;
     min-height: 620px;
     max-height: 620px;
@@ -50,9 +50,10 @@ body {
 
 .display {
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    justify-content: space-between;
     align-items: flex-end;
-    padding: 10px;
+    padding: 15px 10px;
     border-radius: 3px;
     outline: 2px solid #192a56;
     background-color: #dcdde1;
@@ -60,8 +61,16 @@ body {
     height: 20%;
     margin: 20px 0;
     text-align: end;
-    font-size: 24px;
     line-height: 32px;
+}
+
+.calculation {
+    font-size: 24px;
+}
+
+.result {
+    font-weight: 500;
+    font-size: 36px;
 }
 
 .btn-container {
@@ -86,6 +95,10 @@ button:hover {
 .top-btns button {
     width: 175px;
     height: 70px;
+    font-size: 22px;
+}
+
+.btn-row button.operator {
     font-size: 22px;
 }
 
